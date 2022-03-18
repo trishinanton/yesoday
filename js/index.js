@@ -17,14 +17,5 @@ function onHoverLogo () {
     })
 }
 
-// init animation on main screen
-let controller = new ScrollMagic.Controller();
 
-new ScrollMagic.Scene({
-	duration: 100, // the scene should last for a scroll distance of 100px
-	offset: 50, // start this scene after scrolling for 50px
-})
-.setTween(".title-animate", 0.5, {backgroundColor: "green", scale: 2.5}) // trigger a TweenMax.to tween
-.addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-.addTo(controller);
 
