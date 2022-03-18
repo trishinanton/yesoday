@@ -5,7 +5,7 @@ function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
 
     logoContainer.addEventListener('mouseover', function() {
-        this.children[0].setAttribute('src', '../img/main/logo-active.png'); 
+        this.children[0].setAttribute('src', '/img/main/logo-active.png'); 
         this.children[0].style.height = '61px'
         this.classList.add('menu__logo_active')
     })
