@@ -11,7 +11,7 @@ function onHoverLogo () {
     })
 
     logoContainer.addEventListener('mouseout', function() {
-        this.children[0].setAttribute('src', '../img/main/logo.png');
+        this.children[0].setAttribute('src', '/img/main/logo.png');
         this.classList.remove('menu__logo_active');
         this.children[0].style.height = ''
     })
