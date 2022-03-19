@@ -18,6 +18,9 @@ a {
 a:hover {
   cursor: pointer;
 }
+.mobile-indent {
+  display: none;
+}
 .container {
   max-width: 75vw;
   margin: 0px auto;
@@ -27,7 +30,7 @@ a:hover {
   height: 100vh;
 }
 .main-title {
-  margin-top: 8vh;
+  padding-top: 8vh;
   position: relative;
   z-index: 1;
 }
@@ -56,16 +59,19 @@ a:hover {
   font-style: normal;
   font-weight: 400;
   font-size: 0.5rem;
-  line-height: 14px;
+  line-height: 1.2;
   letter-spacing: 0.12em;
   color: #F8C800;
 }
 .menu__item:hover {
   color: #FFFFFF;
 }
+.menu-mobile {
+  display: none;
+}
 .title {
   font-size: 4rem;
-  line-height: 80px;
+  line-height: 0.9;
   letter-spacing: -0.01em;
   color: #FFFFFF;
   width: 85%;
@@ -77,24 +83,24 @@ a:hover {
   display: flex;
   justify-content: flex-end;
   font-size: 3.1rem;
-  line-height: 80px;
+  line-height: 1.1;
   color: #000000;
 }
 .title__active {
   color: #F8C800;
   background-color: black;
   font-size: 3.9rem;
-  line-height: 88px;
+  line-height: 1.01;
   position: absolute;
-  left: 475px;
   top: 9px;
   display: inline-block;
   height: 94px;
   z-index: -1;
+  box-shadow: -3px 0 0 #000;
 }
 .video {
   width: 100%;
-  transform: translateY(-5%);
+  transform: translateY(-10vh);
   position: relative;
 }
 .video__media {
@@ -127,7 +133,7 @@ a:hover {
 }
 .card__title {
   font-size: 1.5rem;
-  line-height: 49px;
+  line-height: 1.5;
 }
 .card__line {
   width: 100%;
@@ -139,5 +145,144 @@ a:hover {
   font-style: normal;
   font-weight: 200;
   font-size: 1rem;
-  line-height: 52px;
+  line-height: 2.5;
+}
+@media screen and (max-width: 1500px) {
+  html {
+    font-size: 18px;
+  }
+  .title__active {
+    height: 80px;
+    box-shadow: #000000 -2px 0px 0px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 16px;
+  }
+  .container {
+    max-width: 80vw;
+  }
+  .menu__logo img {
+    width: 82.35px;
+    height: 74.02px;
+  }
+  .title__active {
+    height: 65px;
+    top: 7px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+  .title__active {
+    height: 51px;
+    top: 6px;
+  }
+  .menu__row {
+    padding-left: 30px;
+    box-shadow: none;
+  }
+  .menu__logo img {
+    width: 76.35px;
+    height: 66.02px;
+  }
+}
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 10px;
+  }
+  .title__active {
+    height: 41px;
+    top: 5px;
+    box-shadow: #000000 -1px 0px 0px;
+  }
+}
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 7px;
+  }
+  .container {
+    max-width: 94vw;
+  }
+  .mobile-indent {
+    display: block;
+  }
+  .desktop-indent {
+    display: none;
+  }
+  .menu {
+    display: none;
+  }
+  .menu-mobile__card_hide {
+    display: none;
+  }
+  .menu-mobile {
+    display: block;
+  }
+  .menu-mobile__logo {
+    position: fixed;
+    top: 6px;
+    right: 8px;
+  }
+  .menu-mobile__logo img {
+    width: 58px;
+    height: 47px;
+  }
+  .menu-mobile__card {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 78vw;
+    height: 90vh;
+    background-color: black;
+    top: 24px;
+    right: 60px;
+    z-index: 2;
+    padding: 0 10% 72% 9%;
+  }
+  .menu-mobile__close {
+    color: white;
+    font-size: 3.8rem;
+    font-family: 'Nekst';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    transform: rotate(45deg);
+    width: 20px;
+    height: 20px;
+    padding-top: 10%;
+  }
+  .menu-mobile__row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 25%;
+  }
+  .menu-mobile__item {
+    color: white;
+    font-family: 'Nekst';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 2.6rem;
+    line-height: 1.2;
+  }
+  .menu-mobile__item:hover {
+    color: #F8C800;
+  }
+  .title {
+    line-height: 1;
+  }
+  .title__active {
+    display: none;
+  }
+  .title__hide {
+    font-size: 3.7rem;
+    line-height: 2.3;
+  }
+  .main-title {
+    padding-top: 28vh;
+  }
 }
