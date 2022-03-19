@@ -214,9 +214,17 @@ a {
         // margin-right: 12vw;
         margin-top: 59px;
         width: 35vw;
+
         &__title {
             font-size: 1.5rem;
             line-height: 1.06;
+            position: relative;
+        }
+
+        &__line {
+            position: absolute;
+            width: 72%;
+            bottom: -44%;
         }
 
         &__subtitle {
@@ -225,8 +233,38 @@ a {
             font-weight: 300;
             font-size: 1rem;
             line-height: 1.2;
-            margin-top: 34px;
+            margin-top: 7%;
         }
+    }
+
+    &-logo {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 111px;
+
+        &_mobile {
+            display: none;
+        }
+
+        &__wrapper {
+            width: 15%;
+            display: flex;
+            justify-content: center;
+
+            & img {
+                width: 100%;
+            }
+        }
+
+        &__sber {
+            width: 30%;
+        }
+    }
+    &__active{
+        z-index: 1;
     }
 }
 
@@ -461,4 +499,73 @@ a {
             font-size: 2.6rem;
         }
     }
+
+    .advantage {
+        &-cards {
+            padding-left: 0;
+            flex-direction: column;
+        }
+
+        &-card {
+            margin-top: 32px;
+            width: 100%;
+
+            &__subtitle {
+                font-size: 2.5rem;
+                margin-top: 12%;
+
+                & br {
+                    display: none;
+                }
+            }
+
+            &__title {
+                font-size: 3.4rem;
+            }
+
+            &__line {
+                bottom: -62%;
+                width: 100%;
+            }
+        }
+
+        &-logo {
+            display: none;
+
+            &_mobile {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                margin-top: 68px;
+            }
+            &__wrapper {
+                width: 48%;
+                margin-top: 20px;
+                & img{
+                    width: 62%;
+                }
+            }
+            &__wrapper:nth-child(odd){
+                // justify-content: flex-start;
+            }
+            &__sber{
+                width: 60%;
+                & img{
+                    width: 89%;
+                }
+            }
+            &__gaz{
+                width: 40%;
+            }
+            &__transneft,
+            &__webasto,
+            &__lukoil{
+                & img {
+                    width: 70%;
+                }
+            }
+
+        }
+    }
+
 }

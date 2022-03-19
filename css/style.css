@@ -171,6 +171,12 @@ a:hover {
 .advantage-card__title {
   font-size: 1.5rem;
   line-height: 1.06;
+  position: relative;
+}
+.advantage-card__line {
+  position: absolute;
+  width: 72%;
+  bottom: -44%;
 }
 .advantage-card__subtitle {
   font-family: 'Nekst';
@@ -178,7 +184,32 @@ a:hover {
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.2;
-  margin-top: 34px;
+  margin-top: 7%;
+}
+.advantage-logo {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 111px;
+}
+.advantage-logo_mobile {
+  display: none;
+}
+.advantage-logo__wrapper {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+.advantage-logo__wrapper img {
+  width: 100%;
+}
+.advantage-logo__sber {
+  width: 30%;
+}
+.advantage__active {
+  z-index: 1;
 }
 @media screen and (max-width: 1500px) {
   html {
@@ -354,5 +385,57 @@ a:hover {
   }
   .card__subtitle {
     font-size: 2.6rem;
+  }
+  .advantage-cards {
+    padding-left: 0;
+    flex-direction: column;
+  }
+  .advantage-card {
+    margin-top: 32px;
+    width: 100%;
+  }
+  .advantage-card__subtitle {
+    font-size: 2.5rem;
+    margin-top: 12%;
+  }
+  .advantage-card__subtitle br {
+    display: none;
+  }
+  .advantage-card__title {
+    font-size: 3.4rem;
+  }
+  .advantage-card__line {
+    bottom: -62%;
+    width: 100%;
+  }
+  .advantage-logo {
+    display: none;
+  }
+  .advantage-logo_mobile {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 68px;
+  }
+  .advantage-logo__wrapper {
+    width: 48%;
+    margin-top: 20px;
+  }
+  .advantage-logo__wrapper img {
+    width: 62%;
+  }
+  .advantage-logo__sber {
+    width: 60%;
+  }
+  .advantage-logo__sber img {
+    width: 89%;
+  }
+  .advantage-logo__gaz {
+    width: 40%;
+  }
+  .advantage-logo__transneft img,
+  .advantage-logo__webasto img,
+  .advantage-logo__lukoil img {
+    width: 70%;
   }
 }
