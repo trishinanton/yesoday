@@ -35,6 +35,11 @@ a {
     margin: 0px auto;
 }
 
+.container-mobile {
+    max-width: 75vw;
+    margin: 0px auto;
+}
+
 .main {
     background-color: @yellow-color;
     height: 100vh;
@@ -158,11 +163,11 @@ a {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 25vh;
+    padding-top: 140px;
 }
 
 .card {
-    width: 24vw;
+    width: 24.5vw;
     margin-bottom: 8vh;
 
     &__image {
@@ -176,16 +181,52 @@ a {
 
     &__line {
         width: 100%;
-        height: 21px;
+        height: 1.4vw;
         background-color: black;
     }
 
     &__subtitle {
         font-family: 'Nekst';
         font-style: normal;
-        font-weight: 200;
+        font-weight: 300;
         font-size: 1rem;
-        line-height: 2.5;
+        margin-top: 10px;
+    }
+}
+
+////////Преимущества//////////
+.advantage {
+    background-color: @yellow-color;
+    padding-top: 78px;
+
+    &__title {
+        width: 100%;
+        font-size: 3.8rem;
+    }
+
+    &-cards {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 3.5vw;
+    }
+
+    &-card {
+        // margin-right: 12vw;
+        margin-top: 59px;
+        width: 35vw;
+        &__title {
+            font-size: 1.5rem;
+            line-height: 1.06;
+        }
+
+        &__subtitle {
+            font-family: 'Nekst';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 1rem;
+            line-height: 1.2;
+            margin-top: 34px;
+        }
     }
 }
 
@@ -195,15 +236,10 @@ a {
     }
 
     .title {
-        // font-size: 3.2rem;
-        // line-height: 68px;
 
         &__active {
-            // font-size: 3.4rem;
-            // line-height: 76px;
             height: 80px;
             box-shadow: rgb(0 0 0) -2px 0px 0px;
-            // top: 6px;
         }
     }
 }
@@ -223,18 +259,10 @@ a {
     }
 
     .title {
-        // font-size: 2.5rem;
-        // line-height: 53px;
 
         &__active {
-            // font-size: 2.4rem;
-            // line-height: 55px;
             height: 65px;
             top: 7px;
-        }
-
-        &__hide {
-            // font-size: 2.2rem;
         }
     }
 }
@@ -245,19 +273,9 @@ a {
     }
 
     .title {
-        // font-size: 2.2rem;
-        // line-height: 49px;
-
         &__active {
-            // font-size: 2.0rem;
-            // line-height: 45px;
-            // height: 50px;
             height: 51px;
             top: 6px;
-        }
-
-        &__hide {
-            // font-size: 1.9rem;
         }
     }
 
@@ -280,21 +298,30 @@ a {
     }
 
     .title {
-        // font-size: 1.6rem;
-        // line-height: 36px;
-
         &__active {
-            // font-size: 1.5rem;
-            // line-height: 30px;
             height: 41px;
             top: 5px;
             box-shadow: #000000 -1px 0px 0px;
         }
+    }
 
-        &__hide {
-            // font-size: 1.4rem;
-            // line-height: 38px;
-        }
+    .cards {
+        padding-top: 60px;
+    }
+
+    .card {
+        width: 39vw;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    html {
+        font-size: 7px;
+    }
+
+    .title__active {
+        height: 30px;
+        top: 4px;
     }
 }
 
@@ -405,7 +432,33 @@ a {
     .main-title {
         padding-top: 28vh;
     }
-    .video{
+
+    .container-mobile {
+        max-width: 100vw;
+    }
+
+    .video {
         transform: translateY(-10vh);
+    }
+
+    .cards {
+        padding-top: 20px;
+    }
+
+    .card {
+        width: 100%;
+        margin-bottom: 6.5vh;
+
+        &__title {
+            font-size: 4rem;
+        }
+
+        &__line {
+            height: 4vw;
+        }
+
+        &__subtitle {
+            font-size: 2.6rem;
+        }
     }
 }
