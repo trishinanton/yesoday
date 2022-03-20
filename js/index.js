@@ -1,6 +1,7 @@
 // hover on logo
 onHoverLogo()
 activeMobileMenu()
+hoverIconFooter()
 
 function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
@@ -42,6 +43,23 @@ function activeMobileMenu () {
                 document.body.style.overflow = ""
             })
         }
+    })
+}
+
+function hoverIconFooter () {
+    let logo = document.querySelectorAll('.footer__row img')
+
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+    
+    logo.forEach(el => {
+        el.addEventListener('mouseover', function() {
+            el.setAttribute('src', `${url}/img/footer/${el.alt}-hover.png`)
+        })
+
+        el.addEventListener('mouseout', function() {
+            el.setAttribute('src', `${url}/img/footer/${el.alt}.png`)
+        })
     })
 }
 
