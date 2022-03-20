@@ -263,8 +263,150 @@ a {
             width: 30%;
         }
     }
-    &__active{
+
+    &__active {
         z-index: 1;
+        height: 92px;
+        // top: 7px;
+        // line-height: 1.03;
+    }
+
+    &__footer {
+        font-size: 3.8rem;
+        padding-bottom: 66px;
+        margin-top: 64px;
+    }
+}
+
+.contacts {
+    position: relative;
+
+    &-video {
+        width: 70vw;
+        position: relative;
+
+        &__mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url(../img/contacts/LOGO\ MASK\ —\ 2.png) 0% 0% no-repeat;
+            background-size: contain;
+            z-index: 1;
+        }
+    }
+
+    &__video {
+        width: 80%;
+        height: auto;
+        transform: translateX(-7.7vw);
+
+    }
+
+    &-contain {
+        width: 61vw;
+        background-color: white;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+
+    }
+
+    &__wrapper {
+        margin-left: 75px;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        line-height: 1.06;
+        margin-bottom: 13px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 18vw;
+    }
+
+    &__input {
+        border: 2px solid #868686;
+        margin-top: 7px;
+        padding: 9px;
+        font-family: 'Nekst';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.2;
+    }
+
+    &__button {
+        font-family: 'Nekst';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 1rem;
+        line-height: 1.2;
+        color: @yellow-color;
+        padding: 9px;
+        margin-top: 15px;
+        border: 1px solid black;
+        background-color: black;
+    }
+}
+
+////footer/////////////
+
+.footer {
+    background-color: black;
+    padding: 2vw 0 2vw;
+    box-shadow: 0px -4px black;
+    z-index: 1;
+    position: relative;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    &__description {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 60%;
+
+        & img {
+            width: 109px;
+            height: 51px;
+        }
+    }
+
+    &__contacts {
+        font-family: 'Nekst';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        color: #FFFFFF;
+    }
+
+    &__icons {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        & img {
+            width: 6%;
+            margin-left: 10%;
+        }
+    }
+
+    .facebook {
+        width: 3%;
     }
 }
 
@@ -279,6 +421,11 @@ a {
             height: 80px;
             box-shadow: rgb(0 0 0) -2px 0px 0px;
         }
+    }
+
+    .advantage__active {
+        top: 7px;
+        height: 76px;
     }
 }
 
@@ -302,6 +449,10 @@ a {
             height: 65px;
             top: 7px;
         }
+    }
+
+    .advantage__active {
+        top: 6px;
     }
 }
 
@@ -328,6 +479,10 @@ a {
             height: 66.02px;
         }
     }
+
+    .advantage__active {
+        top: 3.7px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -350,6 +505,16 @@ a {
     .card {
         width: 39vw;
     }
+
+    .advantage__active {
+        top: 3.7px;
+    }
+
+    .contacts {
+        &__form {
+            width: 22vw;
+        }
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -360,6 +525,20 @@ a {
     .title__active {
         height: 30px;
         top: 4px;
+    }
+
+    .advantage__active {
+        top: 2.1px;
+    }
+
+    .contacts {
+        &__title {
+            margin-bottom: 0;
+        }
+
+        &__input {
+            padding: 4px;
+        }
     }
 }
 
@@ -538,28 +717,35 @@ a {
                 align-items: center;
                 margin-top: 68px;
             }
+
             &__wrapper {
                 width: 48%;
                 margin-top: 20px;
-                & img{
+
+                & img {
                     width: 62%;
                 }
             }
-            &__wrapper:nth-child(odd){
+
+            &__wrapper:nth-child(odd) {
                 // justify-content: flex-start;
             }
-            &__sber{
+
+            &__sber {
                 width: 60%;
-                & img{
+
+                & img {
                     width: 89%;
                 }
             }
-            &__gaz{
+
+            &__gaz {
                 width: 40%;
             }
+
             &__transneft,
             &__webasto,
-            &__lukoil{
+            &__lukoil {
                 & img {
                     width: 70%;
                 }
@@ -568,4 +754,100 @@ a {
         }
     }
 
+    .advantage {
+        &__active {
+            display: block;
+            right: 0.5px;
+            transform: translateX(100%);
+            top: 2.5px;
+        }
+
+        &__footer {
+            padding-bottom: 49px;
+            margin-top: 39px;
+            padding-left: 3vw;
+        }
+    }
+
+    .contacts {
+        &-video {
+            width: 142vw;
+        }
+
+        &__video {
+            width: 100%;
+            transform: translateX(-19vw);
+        }
+
+        &-contain {
+            width: 100vw;
+            transform: translateY(184%);
+            align-items: flex-start;
+            height: auto;
+            justify-content: flex-start;
+        }
+
+        &__wrapper {
+            margin-left: 3vw;
+        }
+
+        &__title {
+            font-size: 3rem;
+            margin-bottom: 6px;
+        }
+
+        &__form {
+            width: 53vw;
+        }
+
+        &__input {
+            font-size: 2.6rem;
+        }
+
+        &__button {
+            font-size: 2.6rem;
+        }
+    }
+
+    .footer {
+        margin-top: 61%;
+        &__description{
+            flex-direction: column;
+            align-items: flex-start;
+            & img{
+                width: 85px;
+                height: 40px;
+            }
+        }
+        &__contacts{
+            font-size: 2.3rem;
+        }
+        &__contacts:nth-child(even){
+            margin-top: 48px;
+        }
+        &__icons{
+            width: 22%;
+            flex-wrap: wrap;
+           & img{
+              width: 24px; 
+           } 
+
+        }
+        .facebook{
+            width: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .footer {
+        margin-top: 75%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .footer {
+        margin-top: 105%;
+
+    }
 }
