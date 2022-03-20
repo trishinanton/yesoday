@@ -104,7 +104,6 @@ a:hover {
 }
 .video {
   width: 100%;
-  transform: translateY(-11vh);
   position: relative;
 }
 .video__media {
