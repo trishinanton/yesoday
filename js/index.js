@@ -4,9 +4,12 @@ activeMobileMenu()
 
 function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+
 
     logoContainer.addEventListener('mouseover', function() {
-        this.children[0].setAttribute('src', `${location.origin}/img/main/logo-active.png`); 
+        this.children[0].setAttribute('src', `${url}/img/main/logo-active.png`); 
         this.children[0].style.height = '61px'
         this.classList.add('menu__logo_active')
         console.log(location);
