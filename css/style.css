@@ -125,7 +125,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-top: 140px;
+  padding-top: 14vw;
 }
 .card {
   width: 24.5vw;
@@ -247,6 +247,7 @@ a:hover {
   right: 0;
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 .contacts__wrapper {
   margin-left: 75px;
@@ -283,10 +284,14 @@ a:hover {
   border: 1px solid black;
   background-color: black;
 }
+.contacts__button:hover {
+  color: white;
+  cursor: pointer;
+}
 .footer {
   background-color: black;
   padding: 2vw 0 2vw;
-  box-shadow: 0px -4px black;
+  box-shadow: 0px -5px black;
   z-index: 1;
   position: relative;
 }
@@ -305,6 +310,9 @@ a:hover {
   width: 109px;
   height: 51px;
 }
+.footer__description img:hover {
+  cursor: pointer;
+}
 .footer__contacts {
   font-family: 'Nekst';
   font-style: normal;
@@ -313,18 +321,30 @@ a:hover {
   line-height: 1.2;
   color: #FFFFFF;
 }
+.footer__contacts:hover {
+  color: #616060;
+  cursor: pointer;
+}
 .footer__icons {
   width: 40%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.footer__icons img {
-  width: 6%;
-  margin-left: 10%;
+.footer__row {
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.footer__row a {
+  width: 18%;
+  margin-right: 33%;
+}
+.footer__row img {
+  width: 100%;
 }
 .footer .facebook {
-  width: 3%;
+  width: 60%;
 }
 @media screen and (max-width: 1500px) {
   html {
@@ -387,9 +407,6 @@ a:hover {
     top: 5px;
     box-shadow: #000000 -1px 0px 0px;
   }
-  .cards {
-    padding-top: 60px;
-  }
   .card {
     width: 39vw;
   }
@@ -444,6 +461,7 @@ a:hover {
     position: fixed;
     top: 6px;
     right: 8px;
+    z-index: 1;
   }
   .menu-mobile__logo img {
     width: 58px;
@@ -452,7 +470,7 @@ a:hover {
   .menu-mobile__card {
     display: flex;
     justify-content: space-between;
-    position: absolute;
+    position: fixed;
     width: 78vw;
     height: 90vh;
     background-color: black;
@@ -487,6 +505,9 @@ a:hover {
     font-weight: 300;
     font-size: 2.6rem;
     line-height: 1.2;
+  }
+  .menu-mobile__item_active {
+    color: #F8C800;
   }
   .menu-mobile__item:hover {
     color: #F8C800;
@@ -592,13 +613,16 @@ a:hover {
   .contacts-video {
     width: 142vw;
   }
+  .contacts-video__wrapper {
+    overflow-x: hidden;
+  }
   .contacts__video {
     width: 100%;
     transform: translateX(-19vw);
   }
   .contacts-contain {
     width: 100vw;
-    transform: translateY(184%);
+    transform: translateY(189%);
     align-items: flex-start;
     height: auto;
     justify-content: flex-start;
@@ -620,15 +644,20 @@ a:hover {
     font-size: 2.6rem;
   }
   .footer {
-    margin-top: 61%;
+    margin-top: 64%;
+    padding: 4vw 0 4vw;
   }
   .footer__description {
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
   }
   .footer__description img {
     width: 85px;
     height: 40px;
+  }
+  .footer__description a:nth-child(even) {
+    margin-top: 20px;
   }
   .footer__contacts {
     font-size: 2.3rem;
@@ -637,14 +666,24 @@ a:hover {
     margin-top: 48px;
   }
   .footer__icons {
-    width: 22%;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
-  .footer__icons img {
-    width: 24px;
+  .footer__row {
+    width: 100%;
+    justify-content: flex-end;
   }
-  .footer .facebook {
-    width: 12px;
+  .footer__row a {
+    margin-right: 0;
+    width: 20%;
+    margin-top: 15%;
+    margin-left: 16%;
+    margin-right: 15%;
+  }
+  .footer__row img {
+    width: 100%;
+  }
+  .footer .facebook-link {
+    margin-right: 8%;
   }
 }
 @media screen and (max-width: 380px) {
@@ -652,8 +691,11 @@ a:hover {
     margin-top: 75%;
   }
 }
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 360px) {
+  .contacts__button {
+    font-size: 2.4rem;
+  }
   .footer {
-    margin-top: 105%;
+    margin-top: 84%;
   }
 }

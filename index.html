@@ -14,32 +14,32 @@
 </head>
 
 <body>
-    <section class="main">
+    <section class="main" id='main'>
         <div class="container">
-            <header class="menu">
+            <header class="menu" id='menu'>
                 <div class="menu__logo">
                     <img src="./img/main/logo.png" alt="logo">
                 </div>
                 <div class="menu__row">
-                    <a href="" class="menu__item">ПРОЕКТЫ</a>
-                    <a href="" class="menu__item">ПОДХОД</a>
-                    <a href="" class="menu__item">КЛИЕНТЫ</a>
-                    <a href="" class="menu__item">ЕСТЬ ДЕЛО</a>
-                    <a href="" class="menu__item">КОНТАКТЫ</a>
+                    <a href="#projects" class="menu__item">ПРОЕКТЫ</a>
+                    <a href="#advantage" class="menu__item">ПОДХОД</a>
+                    <a href="#clients" class="menu__item">КЛИЕНТЫ</a>
+                    <a href="#contacts" class="menu__item">ЕСТЬ ДЕЛО</a>
+                    <a href="#footer" class="menu__item">КОНТАКТЫ</a>
                 </div>
             </header>
-            <header class="menu-mobile">
+            <header class="menu-mobile" id='mobile-menu'>
                 <div class="menu-mobile__logo">
                     <img src="./img/main/logo-mobile.png" alt="mobile-logo">
                 </div>
                 <div class="menu-mobile__card_hide">
                     <div class="menu-mobile__close">+</div>
                     <div class="menu-mobile__row">
-                        <a href="" class="menu-mobile__item">ПРОЕКТЫ</a>
-                        <a href="" class="menu-mobile__item">ПОДХОД</a>
-                        <a href="" class="menu-mobile__item">КЛИЕНТЫ</a>
-                        <a href="" class="menu-mobile__item">ЕСТЬ ДЕЛО</a>
-                        <a href="" class="menu-mobile__item">КОНТАКТЫ</a>
+                        <a href="#projects" class="menu-mobile__item">ПРОЕКТЫ</a>
+                        <a href="#advantage" class="menu-mobile__item">ПОДХОД</a>
+                        <a href="#clients-mobile" class="menu-mobile__item">КЛИЕНТЫ</a>
+                        <a href="#contacts" class="menu-mobile__item">ЕСТЬ ДЕЛО</a>
+                        <a href="#footer" class="menu-mobile__item">КОНТАКТЫ</a>
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
             <div id="title-hide" class="title__hide"><span>—да, сегодня!</span></div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id='projects'>
         <div class="container-mobile">
             <div class="video">
                 <img class="video__image_top" src="./img/projects/YES top part.png" alt="yes-top">
@@ -106,7 +106,7 @@
         </div>
     </section>
 
-    <section class="advantage">
+    <section class="advantage" id='advantage'>
         <div class="container">
             <h2 class="title advantage__title">
                 ПОГРУЖАЕМСЯ<br> В ВАШ БИЗНЕС<br class="mobile-indent"> И<br class="desktop-indent"> ВЫДАЕМ<br
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </div>
-            <div class="advantage-logo">
+            <div class="advantage-logo" id='clients'>
                 <div class="advantage-logo__wrapper advantage-logo__sber">
                     <img src="./img/advantages/logo sber.png" alt="sber" class="logo-sber">
                 </div>
@@ -191,7 +191,7 @@
 
 
 
-            <div class="advantage-logo_mobile">
+            <div class="advantage-logo_mobile" id='clients-mobile'>
                 <div class="advantage-logo__wrapper advantage-logo__sber">
                     <img src="./img/advantages/logo sber.png" alt="sber" class="logo-sber">
                 </div>
@@ -230,12 +230,15 @@
         </div>
     </section>
 
-    <section class="contacts">
-        <div class="contacts-video">
+    <section class="contacts" id='contacts'>
+        <div class="contacts-video__wrapper">
+            <div class="contacts-video">
             <div class="contacts-video__mask"></div>
             <video class='contacts__video' muted playsinline loop src="./video/Showreel Zhdanov Production.mp4"
                 autoplay></video>
         </div>
+        </div>
+        
         <div class="contacts-contain">
             <div class="contacts__wrapper">
                 <div class="contacts__title">
@@ -252,19 +255,26 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id='footer'>
         <div class="container">
             <div class="footer__wrapper">
                 <div class="footer__description">
-                    <img src="./img/footer/logo.png" alt="footer-logo">
-                    <div class="footer__contacts">+7 9111 999-00-00</div>
-                    <div class="footer__contacts">mail@yestoday.ru</div>
+                    <div class="footer-logo__wrapper" id='footer-logo'>
+                       <a href="#main"><img src="./img/footer/logo.png" alt="footer-logo"></a> 
+                    </div>
+                    <a href=""><div class="footer__contacts">+7 9111 999-00-00</div></a>
+                    <a href=""><div class="footer__contacts">mail@yestoday.ru</div></a>
                 </div>
                 <div class="footer__icons">
-                    <img src="./img/footer/fb.png" alt="facebook" class="facebook">
-                    <img src="./img/footer/yt.png" alt="youtube" class="youtube">
-                    <img src="./img/footer/inst.png" alt="insta" class="insta">
-                    <img src="./img/footer/vk.png" alt="vk" class="vk">
+                    <div class="footer__row">
+                        <a href="" class="facebook-link"><img src="./img/footer/fb.png" alt="facebook" class="facebook"></a>
+                        <a href=""><img src="./img/footer/yt.png" alt="youtube" class="youtube"></a>
+                    </div>
+                    <div class="footer__row">
+                       <a href=""><img src="./img/footer/inst.png" alt="insta" class="insta"></a>
+                        <a href=""><img src="./img/footer/vk.png" alt="vk" class="vk"></a> 
+                    </div>
+                    
                 </div>
             </div>
 
@@ -273,7 +283,8 @@
     </footer>
     </div>
 
-
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- GSAP -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>

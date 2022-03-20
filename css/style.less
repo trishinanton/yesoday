@@ -163,7 +163,8 @@ a {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-top: 140px;
+    padding-top: 14vw;
+
 }
 
 .card {
@@ -313,6 +314,7 @@ a {
         right: 0;
         display: flex;
         align-items: center;
+        z-index: 1;
 
     }
 
@@ -354,6 +356,11 @@ a {
         margin-top: 15px;
         border: 1px solid black;
         background-color: black;
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
     }
 }
 
@@ -362,7 +369,7 @@ a {
 .footer {
     background-color: black;
     padding: 2vw 0 2vw;
-    box-shadow: 0px -4px black;
+    box-shadow: 0px -5px black;
     z-index: 1;
     position: relative;
 
@@ -381,6 +388,10 @@ a {
         & img {
             width: 109px;
             height: 51px;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
@@ -391,6 +402,11 @@ a {
         font-size: 0.9rem;
         line-height: 1.2;
         color: #FFFFFF;
+
+        &:hover {
+            color: #616060;
+            cursor: pointer;
+        }
     }
 
     &__icons {
@@ -398,15 +414,28 @@ a {
         display: flex;
         align-items: center;
         justify-content: flex-end;
+    }
+
+    &__row {
+        display: flex;
+        align-items: center;
+        width: 30%;
+
+        & a {
+            width: 18%;
+            margin-right: 33%;
+        }
 
         & img {
-            width: 6%;
-            margin-left: 10%;
+            width: 100%;
+            // margin-right: 33%;
+
+            &:hover {}
         }
     }
 
     .facebook {
-        width: 3%;
+        width: 60%;
     }
 }
 
@@ -498,9 +527,9 @@ a {
         }
     }
 
-    .cards {
-        padding-top: 60px;
-    }
+    // .cards {
+    //     padding-top: 60px;
+    // }
 
     .card {
         width: 39vw;
@@ -577,6 +606,8 @@ a {
             top: 6px;
             right: 8px;
 
+            z-index: 1;
+
 
             & img {
                 width: 58px;
@@ -587,7 +618,7 @@ a {
         &__card {
             display: flex;
             justify-content: space-between;
-            position: absolute;
+            position: fixed;
             width: 78vw;
             height: 90vh;
             background-color: black;
@@ -625,7 +656,9 @@ a {
             font-weight: 300;
             font-size: 2.6rem;
             line-height: 1.2;
-
+            &_active{
+                color: @yellow-color
+            }
             &:hover {
                 color: @yellow-color;
             }
@@ -770,8 +803,14 @@ a {
     }
 
     .contacts {
+
+        // overflow-x: hidden;
         &-video {
             width: 142vw;
+
+            &__wrapper {
+                overflow-x: hidden;
+            }
         }
 
         &__video {
@@ -781,7 +820,7 @@ a {
 
         &-contain {
             width: 100vw;
-            transform: translateY(184%);
+            transform: translateY(189%);
             align-items: flex-start;
             height: auto;
             justify-content: flex-start;
@@ -810,31 +849,53 @@ a {
     }
 
     .footer {
-        margin-top: 61%;
-        &__description{
+        margin-top: 64%;
+        padding: 4vw 0 4vw;
+
+        &__description {
             flex-direction: column;
             align-items: flex-start;
-            & img{
+            justify-content: flex-start;
+            & img {
                 width: 85px;
                 height: 40px;
             }
+            & a:nth-child(even){
+                margin-top: 20px;
+            }
         }
-        &__contacts{
+
+        &__contacts {
             font-size: 2.3rem;
         }
-        &__contacts:nth-child(even){
+
+        &__contacts:nth-child(even) {
             margin-top: 48px;
         }
-        &__icons{
-            width: 22%;
-            flex-wrap: wrap;
-           & img{
-              width: 24px; 
-           } 
 
+        &__icons {
+            flex-direction: column;
         }
-        .facebook{
-            width: 12px;
+
+        &__row {
+            width: 100%;
+            justify-content: flex-end;
+            & a{
+                margin-right: 0;
+                width: 20%;
+                margin-top: 15%;
+                margin-left: 16%;
+                margin-right: 15%;
+            }
+
+            & img {
+                width: 100%;
+            }
+        }
+
+        .facebook-link {
+            margin-right: 8%;
+
         }
     }
 }
@@ -845,9 +906,13 @@ a {
     }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 360px) {
+    .contacts__button {
+        font-size: 2.4rem;
+    }
+
     .footer {
-        margin-top: 105%;
+        margin-top: 84%;
 
     }
 }

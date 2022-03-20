@@ -31,6 +31,7 @@ function activeMobileMenu () {
         
         this.children[0].setAttribute('src', './img/main/logo-active.png')
         this.children[0].style.height = '30px'
+        document.body.style.overflow = "hidden"
 
         let close = document.querySelector('.menu-mobile__close')
         if(close) {
@@ -38,10 +39,38 @@ function activeMobileMenu () {
                 menu.classList.remove('menu-mobile__card')
                 logo.children[0].setAttribute('src', './img/main/logo-mobile.png')
                 logo.children[0].style.height = '47px'
+                document.body.style.overflow = ""
             })
         }
     })
 }
+
+// Плавный скрол меню
+
+$("#menu").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
+});
+
+$("#mobile-menu").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
+    $('.menu-mobile__card_hide').removeClass('menu-mobile__card')
+    $('#mobile-menu a').removeClass('menu-mobile__item_active')
+    $(this).addClass('menu-mobile__item_active')
+    document.body.style.overflow = ""
+});
+
+$("#footer-logo").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
+});
 
 // init animation on main screen
 // let controller = new ScrollMagic.Controller();
