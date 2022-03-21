@@ -10,27 +10,30 @@ function onHoverLogo () {
 
 
     logoContainer.addEventListener('mouseover', function() {
-        this.children[0].setAttribute('src', `${url}/img/main/logo-active.png`); 
+        this.children[0].setAttribute('src', `${url}/img/main/logo-active.svg`); 
         this.children[0].style.height = '61px'
         this.classList.add('menu__logo_active')
         console.log(location);
     })
 
     logoContainer.addEventListener('mouseout', function() {
-        this.children[0].setAttribute('src', './img/main/logo.png');
+        this.children[0].setAttribute('src', `${url}/img/main/logo.svg`);
         this.classList.remove('menu__logo_active');
         this.children[0].style.height = ''
     })
 }
 
 function activeMobileMenu () {
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+
     let logo = document.querySelector('.menu-mobile__logo')
     let menu = document.querySelector('.menu-mobile__card_hide')
 
     logo.addEventListener('click', function() {
         menu.classList.add('menu-mobile__card')
         
-        this.children[0].setAttribute('src', './img/main/logo-active.png')
+        this.children[0].setAttribute('src', `${url}/img/main/logo-active.svg`)
         this.children[0].style.height = '30px'
         document.body.style.overflow = "hidden"
 
@@ -38,7 +41,7 @@ function activeMobileMenu () {
         if(close) {
             close.addEventListener('click', function() {
                 menu.classList.remove('menu-mobile__card')
-                logo.children[0].setAttribute('src', './img/main/logo-mobile.png')
+                logo.children[0].setAttribute('src', `${url}/img/main/logo-mobile.svg`)
                 logo.children[0].style.height = '47px'
                 document.body.style.overflow = ""
             })
@@ -54,11 +57,11 @@ function hoverIconFooter () {
     
     logo.forEach(el => {
         el.addEventListener('mouseover', function() {
-            el.setAttribute('src', `${url}/img/footer/${el.alt}-hover.png`)
+            el.setAttribute('src', `${url}/img/footer/${el.alt}-hover.svg`)
         })
 
         el.addEventListener('mouseout', function() {
-            el.setAttribute('src', `${url}/img/footer/${el.alt}.png`)
+            el.setAttribute('src', `${url}/img/footer/${el.alt}.svg`)
         })
     })
 }

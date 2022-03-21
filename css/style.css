@@ -82,6 +82,7 @@ a:hover {
 }
 .title__wrapper {
   position: relative;
+  display: inline-block;
 }
 .title__hide {
   display: flex;
@@ -93,14 +94,13 @@ a:hover {
 .title__active {
   color: #F8C800;
   background-color: black;
-  font-size: 3.9rem;
-  line-height: 1.01;
+  font-size: 4rem;
+  line-height: 0.9;
   position: absolute;
-  top: 9px;
-  display: inline-block;
-  height: 4.23rem;
   z-index: -1;
-  box-shadow: -3px 0 0 #000;
+  top: 0;
+  left: 99.4%;
+  box-shadow: 0 0.4rem black, 0 -0.17rem black;
 }
 .video {
   width: 100%;
@@ -207,9 +207,14 @@ a:hover {
 .advantage-logo__sber {
   width: 30%;
 }
-.advantage__active {
+.advantage__wrapper {
   z-index: 1;
-  height: 92px;
+}
+.advantage__active {
+  font-size: 3.8rem;
+  line-height: 0.9;
+  left: 99.6%;
+  z-index: -1;
 }
 .advantage__footer {
   font-size: 3.8rem;
@@ -220,7 +225,7 @@ a:hover {
   position: relative;
 }
 .contacts-video {
-  width: 70vw;
+  width: 78vw;
   position: relative;
 }
 .contacts-video__mask {
@@ -229,14 +234,14 @@ a:hover {
   height: 100%;
   top: 0;
   left: 0;
-  background: url(../img/contacts/LOGO2.png) 0% 0% no-repeat;
+  background: url(../img/contacts/logo-test.svg) 0% 0% no-repeat;
   background-size: contain;
   z-index: 1;
 }
 .contacts__video {
   width: 80%;
   height: auto;
-  transform: translateX(-7.7vw);
+  transform: translateX(-11vw);
 }
 .contacts-contain {
   width: 61vw;
@@ -307,11 +312,24 @@ a:hover {
   width: 60%;
 }
 .footer__description img {
-  width: 109px;
-  height: 51px;
+  width: 7vw;
 }
 .footer__description img:hover {
   cursor: pointer;
+}
+.footer-logo__wrapper {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(calc(100% + 2vw));
+  left: 20.4%;
+  width: 8.5%;
+  z-index: 2;
+}
+.footer-logo__wrapper img {
+  width: 100%;
+}
+.footer-logo__hiden {
+  opacity: 0;
 }
 .footer__contacts {
   font-family: 'Nekst';
@@ -341,22 +359,17 @@ a:hover {
   margin-right: 33%;
 }
 .footer__row img {
-  width: 100%;
+  width: 110%;
 }
 .footer .facebook {
   width: 60%;
 }
+.footer .insta {
+  width: 90%;
+}
 @media screen and (max-width: 1500px) {
   html {
     font-size: 18px;
-  }
-  .title__active {
-    height: 80px;
-    box-shadow: #000000 -2px 0px 0px;
-  }
-  .advantage__active {
-    top: 7px;
-    height: 76px;
   }
 }
 @media screen and (max-width: 1280px) {
@@ -370,21 +383,10 @@ a:hover {
     width: 82.35px;
     height: 74.02px;
   }
-  .title__active {
-    height: 65px;
-    top: 7px;
-  }
-  .advantage__active {
-    top: 6px;
-  }
 }
 @media screen and (max-width: 1024px) {
   html {
     font-size: 12px;
-  }
-  .title__active {
-    height: 51px;
-    top: 6px;
   }
   .menu__row {
     padding-left: 30px;
@@ -394,24 +396,13 @@ a:hover {
     width: 76.35px;
     height: 66.02px;
   }
-  .advantage__active {
-    top: 3.7px;
-  }
 }
 @media screen and (max-width: 768px) {
   html {
     font-size: 10px;
   }
-  .title__active {
-    height: 41px;
-    top: 5px;
-    box-shadow: #000000 -1px 0px 0px;
-  }
   .card {
     width: 39vw;
-  }
-  .advantage__active {
-    top: 3.7px;
   }
   .contacts__form {
     width: 22vw;
@@ -420,13 +411,6 @@ a:hover {
 @media screen and (max-width: 640px) {
   html {
     font-size: 7px;
-  }
-  .title__active {
-    height: 30px;
-    top: 4px;
-  }
-  .advantage__active {
-    top: 2.1px;
   }
   .contacts__title {
     margin-bottom: 0;
@@ -598,9 +582,7 @@ a:hover {
   }
   .advantage__active {
     display: block;
-    right: 0.5px;
-    transform: translateX(100%);
-    top: 2.5px;
+    line-height: 1;
   }
   .advantage__footer {
     padding-bottom: 49px;

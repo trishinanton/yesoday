@@ -106,6 +106,7 @@ a {
 
     &__wrapper {
         position: relative;
+        display: inline-block;
     }
 
     &__hide {
@@ -119,15 +120,13 @@ a {
     &__active {
         color: @yellow-color;
         background-color: black;
-        font-size: 3.9rem;
-        line-height: 1.01;
+        font-size: 4rem;
+        line-height: 0.9;
         position: absolute;
-        top: 9px;
-        display: inline-block;
-        // height: 94px;
-        height: 4.23rem;
         z-index: -1;
-        box-shadow: -3px 0 0 #000;
+        top: 0;
+        left: 99.4%;
+        box-shadow: 0 0.4rem black, 0 -0.17rem black;
     }
 }
 
@@ -266,9 +265,17 @@ a {
         }
     }
 
-    &__active {
+    &__wrapper {
         z-index: 1;
-        height: 92px;
+    }
+
+    &__active {
+        z-index: -1;
+        font-size: 3.8rem;
+        line-height: 0.9;
+        left: 99.6%;
+        z-index: -1;
+        // height: 92px;
         // top: 7px;
         // line-height: 1.03;
     }
@@ -284,7 +291,7 @@ a {
     position: relative;
 
     &-video {
-        width: 70vw;
+        width: 78vw;
         position: relative;
 
         &__mask {
@@ -293,7 +300,7 @@ a {
             height: 100%;
             top: 0;
             left: 0;
-            background: url(../img/contacts/LOGO2.png) 0% 0% no-repeat;
+            background: url(../img/contacts/logo-test.svg) 0% 0% no-repeat;
             background-size: contain;
             z-index: 1;
         }
@@ -302,7 +309,7 @@ a {
     &__video {
         width: 80%;
         height: auto;
-        transform: translateX(-7.7vw);
+        transform: translateX(-11vw);
 
     }
 
@@ -387,12 +394,30 @@ a {
         width: 60%;
 
         & img {
-            width: 109px;
-            height: 51px;
-
+            width: 7vw;
             &:hover {
                 cursor: pointer;
             }
+        }
+    }
+
+    &-logo {
+        &__wrapper {
+            // margin-left: 3.5vw;
+            position: absolute;
+            bottom: 0;
+            transform: translateY(calc(100% + 2vw));
+            left: 20.4%;
+            width: 8.5%;
+            z-index: 2;
+            & img {
+                width: 100%;
+            }
+
+        }
+
+        &__hiden {
+            opacity: 0;
         }
     }
 
@@ -428,7 +453,7 @@ a {
         }
 
         & img {
-            width: 100%;
+            width: 110%;
             // margin-right: 33%;
 
             &:hover {}
@@ -437,6 +462,9 @@ a {
 
     .facebook {
         width: 60%;
+    }
+    .insta{
+        width: 90%;
     }
 }
 
@@ -447,16 +475,16 @@ a {
 
     .title {
 
-        &__active {
-            height: 80px;
-            box-shadow: rgb(0 0 0) -2px 0px 0px;
-        }
+        // &__active {
+        //     height: 80px;
+        //     box-shadow: rgb(0 0 0) -2px 0px 0px;
+        // }
     }
 
-    .advantage__active {
-        top: 7px;
-        height: 76px;
-    }
+    // .advantage__active {
+    //     top: 7px;
+    //     height: 76px;
+    // }
 }
 
 @media screen and (max-width: 1280px) {
@@ -475,15 +503,15 @@ a {
 
     .title {
 
-        &__active {
-            height: 65px;
-            top: 7px;
-        }
+        // &__active {
+        //     height: 65px;
+        //     top: 7px;
+        // }
     }
 
-    .advantage__active {
-        top: 6px;
-    }
+    // .advantage__active {
+    //     top: 6px;
+    // }
 }
 
 @media screen and (max-width: 1024px) {
@@ -492,10 +520,10 @@ a {
     }
 
     .title {
-        &__active {
-            height: 51px;
-            top: 6px;
-        }
+        // &__active {
+        //     height: 51px;
+        //     top: 6px;
+        // }
     }
 
     .menu {
@@ -510,9 +538,9 @@ a {
         }
     }
 
-    .advantage__active {
-        top: 3.7px;
-    }
+    // .advantage__active {
+    //     top: 3.7px;
+    // }
 }
 
 @media screen and (max-width: 768px) {
@@ -521,11 +549,11 @@ a {
     }
 
     .title {
-        &__active {
-            height: 41px;
-            top: 5px;
-            box-shadow: #000000 -1px 0px 0px;
-        }
+        // &__active {
+        //     height: 41px;
+        //     top: 5px;
+        //     box-shadow: #000000 -1px 0px 0px;
+        // }
     }
 
     // .cards {
@@ -536,9 +564,9 @@ a {
         width: 39vw;
     }
 
-    .advantage__active {
-        top: 3.7px;
-    }
+    // .advantage__active {
+    //     top: 3.7px;
+    // }
 
     .contacts {
         &__form {
@@ -552,14 +580,14 @@ a {
         font-size: 7px;
     }
 
-    .title__active {
-        height: 30px;
-        top: 4px;
-    }
+    // .title__active {
+    //     height: 30px;
+    //     top: 4px;
+    // }
 
-    .advantage__active {
-        top: 2.1px;
-    }
+    // .advantage__active {
+    //     top: 2.1px;
+    // }
 
     .contacts {
         &__title {
@@ -657,9 +685,11 @@ a {
             font-weight: 300;
             font-size: 2.6rem;
             line-height: 1.2;
-            &_active{
+
+            &_active {
                 color: @yellow-color
             }
+
             &:hover {
                 color: @yellow-color;
             }
@@ -791,9 +821,10 @@ a {
     .advantage {
         &__active {
             display: block;
-            right: 0.5px;
-            transform: translateX(100%);
-            top: 2.5px;
+            line-height: 1;
+            // right: 0.5px;
+            // transform: translateX(100%);
+            // top: 2.5px;
         }
 
         &__footer {
@@ -857,11 +888,13 @@ a {
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
+
             & img {
                 width: 85px;
                 height: 40px;
             }
-            & a:nth-child(even){
+
+            & a:nth-child(even) {
                 margin-top: 20px;
             }
         }
@@ -881,7 +914,8 @@ a {
         &__row {
             width: 100%;
             justify-content: flex-end;
-            & a{
+
+            & a {
                 margin-right: 0;
                 width: 20%;
                 margin-top: 15%;
