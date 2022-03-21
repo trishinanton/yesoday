@@ -74,12 +74,18 @@ $("#menu").on("click","a", function (event) {
 
 $("#mobile-menu").on("click","a", function (event) {
     event.preventDefault();
+
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+
     var id  = $(this).attr('href'),
     top = $(id).offset().top;
     $('body,html').animate({scrollTop: top}, 1500);
     $('.menu-mobile__card_hide').removeClass('menu-mobile__card')
     $('#mobile-menu a').removeClass('menu-mobile__item_active')
     $(this).addClass('menu-mobile__item_active')
+    $('.menu-mobile__logo > img').prop('src', `${url}/img/main/logo-mobile.png`)
+    $('.menu-mobile__logo > img').css({'height':'47px'})
     document.body.style.overflow = ""
 });
 
@@ -88,6 +94,7 @@ $("#footer-logo").on("click","a", function (event) {
     var id  = $(this).attr('href'),
     top = $(id).offset().top;
     $('body,html').animate({scrollTop: top}, 1500);
+    $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
 });
 
 // init animation on main screen
