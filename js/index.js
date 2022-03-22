@@ -1,7 +1,8 @@
-// hover on logo
 onHoverLogo()
 activeMobileMenu()
 hoverIconFooter()
+flowingScrollMenu()
+animateTitleOnMainPage()
 
 function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
@@ -66,9 +67,8 @@ function hoverIconFooter () {
     })
 }
 
-// Плавный скрол меню
-
-$("#menu").on("click","a", function (event) {
+function flowingScrollMenu () {
+    $("#menu").on("click","a", function (event) {
     event.preventDefault();
     var id  = $(this).attr('href'),
     top = $(id).offset().top;
@@ -99,15 +99,65 @@ $("#footer-logo").on("click","a", function (event) {
     $('body,html').animate({scrollTop: top}, 1500);
     $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
 });
+}
 
-// init animation on main screen
-// let controller = new ScrollMagic.Controller();
 
-// new ScrollMagic.Scene({
-// 	duration: 100, // the scene should last for a scroll distance of 100px
-// 	offset: 50, // start this scene after scrolling for 50px
-// })
-// .setTween(".title-animate", 0.5, {backgroundColor: "green", scale: 2.5}) // trigger a TweenMax.to tween
-// .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-// .addTo(controller);
+
+function animateTitleOnMainPage() {
+    const titleYestoday = document.getElementById('title-active')
+    const coordsTitleYestoday = titleYestoday.getBoundingClientRect()
+    const topCoordsWindowTitleYestoday = coordsTitleYestoday.top
+    const bottomCoordsDocumentTitleYestoday = coordsTitleYestoday.bottom + window.pageYOffset
+    const heightTitleYestoday = titleYestoday.offsetHeight
+
+    const scrollerEndTitleYes = topCoordsWindowTitleYestoday + heightTitleYestoday
+    const endTitleYes = bottomCoordsDocumentTitleYestoday + heightTitleYestoday*2
+    const startTitleYes = heightTitleYestoday - 20
+
+    console.log(heightTitleYestoday);
+    console.log(startTitleYes);
+
+    const initTitleYestoday = gsap.timeline({
+        scrollTrigger: {
+            start: '10px',
+            end: `${bottomCoordsDocumentTitleYestoday} ${topCoordsWindowTitleYestoday}`,
+            scrub: true,
+            markers: true
+        }
+    });
+    initTitleYestoday.to("#title-active", {yPercent: 130, duration: 1})
+
+    const initTitleYes = gsap.timeline({
+        scrollTrigger: {
+            start: `${startTitleYes}`,
+            end: `${endTitleYes} ${scrollerEndTitleYes}`,
+            scrub: true,
+            markers: true
+        }
+    });
+    initTitleYes.to("#title-hide", {yPercent: 110, duration: 1})
+}
+
+// const tl = gsap.timeline({
+//     scrollTrigger: {
+//         // trigger: 10,
+//         start: '10px',
+//         end: `${bottomAnimate} ${topAnimate}`, //относительно document, относительно окна
+//         scrub: true,
+//         markers: true
+//     }
+//   });
+//   tl.to("#title-active", {yPercent: 120, duration: 1})
+
+//   const tl2 = gsap.timeline({
+//     scrollTrigger: {
+//         // trigger: 20,
+//         start: heightTitleAnimate / 3,
+//         end: "10% 50%",
+//       scrub: true,
+//         markers: true
+//     }
+//   });
+//   tl2.to('#title-hide', {yPercent: 110, duration: 1})
+  
 

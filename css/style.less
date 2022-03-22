@@ -115,6 +115,7 @@ a {
         font-size: 3.1rem;
         line-height: 1.1;
         color: #000000;
+        transform: translateY(-110%);
     }
 
     &__active {
@@ -127,6 +128,23 @@ a {
         top: 0;
         left: 99.4%;
         box-shadow: 0 0.4rem black, 0 -0.17rem black;
+    }
+    &-background{
+        // width: 100vw;
+        // position: absolute;
+        &__wrapper{
+            // width: 100vw;
+            position: relative;
+            &::before{
+                content: '';
+                width: 100vw;
+                height: 91%;
+                background-color: @yellow-color;
+                position: absolute;
+                bottom: 0;
+                z-index: -1;
+            }
+        }
     }
 }
 

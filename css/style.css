@@ -90,6 +90,7 @@ a:hover {
   font-size: 3.1rem;
   line-height: 1.1;
   color: #000000;
+  transform: translateY(-110%);
 }
 .title__active {
   color: #F8C800;
@@ -101,6 +102,18 @@ a:hover {
   top: 0;
   left: 99.4%;
   box-shadow: 0 0.4rem black, 0 -0.17rem black;
+}
+.title-background__wrapper {
+  position: relative;
+}
+.title-background__wrapper::before {
+  content: '';
+  width: 100vw;
+  height: 91%;
+  background-color: #F8C800;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
 }
 .video {
   width: 100%;
