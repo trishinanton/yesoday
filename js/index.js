@@ -1,10 +1,23 @@
+let screenWidth = document.documentElement.scrollWidth
+let screenHeight = document.documentElement.clientHeight
+
+
+if (screenWidth <= 420) {
+    animateTitleMobileOnMain()
+    animateMobileAdvantage()
+    animateCardMobile()
+}
+
+if (screenWidth > 420) {
+    animateTitleOnMainPage()
+    animateAdvantage()
+    animateCardOnHover()
+}
+
 onHoverLogo()
 activeMobileMenu()
 hoverIconFooter()
 flowingScrollMenu()
-animateTitleOnMainPage()
-animateCardOnHover()
-animateAdvantage()
 animateYes()
 
 function onHoverLogo () {
@@ -164,12 +177,69 @@ function animateCardOnHover () {
         document.querySelector(`.card__title_${target.alt}`).style.display = 'none'
     })
 }
+
+function animateCardMobile () {
+    const init1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: 'top top',
+            
+        }
+    });
+    init1.from("#card-anime0", {width:"0px"})
+
+    const init2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: '10% top',
+        
+        }
+    });
+    init2.from("#card-anime1", {width:"0px"})
+
+    const init3 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: '30% top',
+            
+        }
+    });
+    init3.from("#card-anime2", {width:"0px"})
+
+    const init4 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: '40% top',
+            
+        }
+    });
+    init4.from("#card-anime3", {width:"0px"})
+
+    const init5 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: '60% top',
+            
+        }
+    });
+    init5.from("#card-anime4", {width:"0px"})
+
+    const init6 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.cards',
+            start: '80% top',
+         
+        }
+    });
+    init6.from("#card-anime5", {width:"0px"})
+}
   
 function animateAdvantage () {
     const initAnim = gsap.timeline({
         scrollTrigger: {
             trigger: '.advantage__title',
-            start: 'top top'
+            start: 'top top',
+            // markers: true
         }
     });
  
@@ -177,6 +247,44 @@ function animateAdvantage () {
     initAnim.add( gsap.from("#advantage-anime1", {width:"0px"}) );
     initAnim.add( gsap.from("#advantage-anime2", {width:"0px"}) );
     initAnim.add( gsap.from("#advantage-anime3", {width:"0px"}) );
+}
+
+function animateMobileAdvantage () {
+    const init1 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage__title',
+            start: 'top top',
+            // markers: true
+        }
+    });
+    init1.from("#advantage-anime0", {width:"0px"})
+
+    const init2 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage__title',
+            start: '20% top',
+            // markers: true
+        }
+    });
+    init2.from("#advantage-anime1", {width:"0px"})
+
+    const init3 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage__title',
+            start: '50% top',
+            // markers: true
+        }
+    });
+    init3.from("#advantage-anime2", {width:"0px"})
+
+    const init4 = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage__title',
+            start: '110% top',
+            // markers: true
+        }
+    });
+    init4.from("#advantage-anime3", {width:"0px"})
 }
 
 function animateYes () {
@@ -190,5 +298,35 @@ function animateYes () {
         }
     });
     init.to('.advantage__active', {yPercent: -150, duration: 1})
+}
+
+function animateTitleMobileOnMain () {
+    
+    const mainTitle = document.querySelector('.main-title')
+    const coordsMainTitle = mainTitle.getBoundingClientRect()
+    const bottomTitle = coordsMainTitle.bottom
+    const endAnim = bottomTitle
+    const scrollerEndTitle = bottomTitle - screenHeight/10
+    const startAnim = screenHeight/20
+
+    const init = gsap.timeline({
+        scrollTrigger: {
+            start: `${startAnim}`,
+            end: `${endAnim} ${scrollerEndTitle}`,
+            scrub: true,
+            // markers: true
+        }
+    });
+    init.to('#title-hide', {yPercent: -130, duration: 1})
+    
+    const init2 = gsap.timeline({
+        scrollTrigger: {
+            start: `${startAnim}`,
+            end: `${endAnim} ${scrollerEndTitle}`,
+            scrub: true,
+            // markers: true
+        }
+    });
+    init2.to('#title-active', {yPercent: -132, duration: 1})
 }
 
