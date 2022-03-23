@@ -3,6 +3,9 @@ activeMobileMenu()
 hoverIconFooter()
 flowingScrollMenu()
 animateTitleOnMainPage()
+animateCardOnHover()
+animateAdvantage()
+animateYes()
 
 function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
@@ -101,63 +104,91 @@ $("#footer-logo").on("click","a", function (event) {
 });
 }
 
-
-
-function animateTitleOnMainPage() {
+function animateTitleOnMainPage () {
     const titleYestoday = document.getElementById('title-active')
+    titleYestoday.style.opacity='1'
     const coordsTitleYestoday = titleYestoday.getBoundingClientRect()
-    const topCoordsWindowTitleYestoday = coordsTitleYestoday.top
-    const bottomCoordsDocumentTitleYestoday = coordsTitleYestoday.bottom + window.pageYOffset
     const heightTitleYestoday = titleYestoday.offsetHeight
-
+    const topCoordsWindowTitleYestoday = coordsTitleYestoday.top
+    const bottomCoordsDocumentTitleYestoday = coordsTitleYestoday.bottom + window.pageYOffset + heightTitleYestoday/2
+    
     const scrollerEndTitleYes = topCoordsWindowTitleYestoday + heightTitleYestoday
-    const endTitleYes = bottomCoordsDocumentTitleYestoday + heightTitleYestoday*2
-    const startTitleYes = heightTitleYestoday - 20
+    const endTitleYes = bottomCoordsDocumentTitleYestoday + heightTitleYestoday
+    const startTitleYes = heightTitleYestoday 
 
     console.log(heightTitleYestoday);
     console.log(startTitleYes);
 
     const initTitleYestoday = gsap.timeline({
         scrollTrigger: {
-            start: '10px',
+            start: `${startTitleYes}`,
             end: `${bottomCoordsDocumentTitleYestoday} ${topCoordsWindowTitleYestoday}`,
             scrub: true,
-            markers: true
+            // markers: true
         }
     });
-    initTitleYestoday.to("#title-active", {yPercent: 130, duration: 1})
+    initTitleYestoday.from("#title-active", {yPercent: 130, duration: 1})
 
     const initTitleYes = gsap.timeline({
         scrollTrigger: {
-            start: `${startTitleYes}`,
+            start: '5px',
             end: `${endTitleYes} ${scrollerEndTitleYes}`,
             scrub: true,
-            markers: true
+            // markers: true
         }
     });
-    initTitleYes.to("#title-hide", {yPercent: 110, duration: 1})
+    initTitleYes.from("#title-hide", {yPercent: 110, duration: 1})
 }
 
-// const tl = gsap.timeline({
-//     scrollTrigger: {
-//         // trigger: 10,
-//         start: '10px',
-//         end: `${bottomAnimate} ${topAnimate}`, //относительно document, относительно окна
-//         scrub: true,
-//         markers: true
-//     }
-//   });
-//   tl.to("#title-active", {yPercent: 120, duration: 1})
+function animateCardOnHover () {
+    const cards = document.querySelector('.cards')
 
-//   const tl2 = gsap.timeline({
-//     scrollTrigger: {
-//         // trigger: 20,
-//         start: heightTitleAnimate / 3,
-//         end: "10% 50%",
-//       scrub: true,
-//         markers: true
-//     }
-//   });
-//   tl2.to('#title-hide', {yPercent: 110, duration: 1})
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+
+    cards.addEventListener('mouseover', function(e) {
+        let target = e.target
+        
+        if(target.className !== 'card__image') return
+
+        target.setAttribute('src', `${url}/img/projects/${target.alt}.gif`)
+        document.querySelector(`.card__title_${target.alt}`).style.display = 'block'
+    });
+
+    cards.addEventListener('mouseout', function(e) {
+        let target = e.target
+        
+        if(target.className !== 'card__image') return
+
+        target.setAttribute('src', `${url}/img/projects/${target.alt}.svg`)
+        document.querySelector(`.card__title_${target.alt}`).style.display = 'none'
+    })
+}
   
+function animateAdvantage () {
+    const initAnim = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage__title',
+            start: 'top top'
+        }
+    });
+ 
+    initAnim.add( gsap.from("#advantage-anime0", {width:"0px"}) );
+    initAnim.add( gsap.from("#advantage-anime1", {width:"0px"}) );
+    initAnim.add( gsap.from("#advantage-anime2", {width:"0px"}) );
+    initAnim.add( gsap.from("#advantage-anime3", {width:"0px"}) );
+}
+
+function animateYes () {
+    const init = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage-logo',
+            start: 'bottom 70%', // start scrollStart (относительно окна)
+            end: '70% 50%', // 70% относительно trigger, 50% - относительно окна
+            scrub: true,
+            // markers: true
+        }
+    });
+    init.to('.advantage__active', {yPercent: -150, duration: 1})
+}
 
