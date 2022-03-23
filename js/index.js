@@ -184,7 +184,7 @@ function animateYes () {
         scrollTrigger: {
             trigger: '.advantage-logo',
             start: 'bottom 70%', // start scrollStart (относительно окна)
-            end: '70% 50%', // 70% относительно trigger, 50% - относительно окна
+            end: '90% 50%', // 70% относительно trigger, 50% - относительно окна
             scrub: true,
             // markers: true
         }
