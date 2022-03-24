@@ -248,6 +248,12 @@ a:hover {
 .advantage-logo__sber {
   width: 30%;
 }
+.advantage-logo__glo {
+  width: 10%;
+}
+.advantage-logo__lukoil {
+  width: 17%;
+}
 .advantage__wrapper {
   z-index: 1;
 }
@@ -553,11 +559,17 @@ a:hover {
   }
   .title {
     line-height: 1;
+    font-size: 4.7rem;
+  }
+  .title__wrapper {
+    width: 100vw;
   }
   .title__active {
-    left: 33vw;
     opacity: 1;
-    transform: translateY(532%);
+    top: 0;
+    left: auto;
+    right: 6vw;
+    transform: translateY(583%);
   }
   .title__hide {
     font-size: 3.7rem;
@@ -574,10 +586,10 @@ a:hover {
   .main-title:after {
     content: '';
     position: absolute;
-    bottom: -15vh;
+    bottom: -18.5rem;
     width: 100vw;
     background: #F8C800;
-    height: 8vh;
+    height: 12rem;
     left: 0;
   }
   .container-mobile {
@@ -598,6 +610,9 @@ a:hover {
   }
   .card__subtitle {
     font-size: 2.6rem;
+  }
+  .advantage__title {
+    font-size: 4.3rem;
   }
   .advantage-cards {
     padding-left: 0;
@@ -651,27 +666,42 @@ a:hover {
   .advantage-logo__lukoil img {
     width: 70%;
   }
+  .advantage-logo__glo img {
+    width: 50%;
+  }
   .advantage__footer:after {
     width: 112%;
   }
   .advantage__active {
     display: block;
-    line-height: 1;
+    line-height: 1.1;
+    transform: translateY(132%);
+    right: -11.2rem;
+  }
+  .advantage__wrapper {
+    width: auto;
   }
   .advantage__footer {
     padding-bottom: 49px;
     margin-top: 39px;
     padding-left: 3vw;
+    font-size: 4.3rem;
+  }
+  .advantage__footer:after {
+    height: 5rem;
+    bottom: 1rem;
   }
   .contacts-video {
     width: 160vw;
+    height: auto;
+    overflow-y: hidden;
   }
   .contacts-video__wrapper {
     overflow-x: hidden;
   }
   .contacts__video {
     width: 100%;
-    transform: translateX(-19vw);
+    transform: translateX(-27vw);
   }
   .contacts-contain {
     width: 100vw;
@@ -679,6 +709,7 @@ a:hover {
     align-items: flex-start;
     height: auto;
     justify-content: flex-start;
+    margin-top: 4vh;
   }
   .contacts__wrapper {
     margin-left: 3vw;
@@ -738,13 +769,38 @@ a:hover {
   .footer .facebook-link {
     margin-right: 8%;
   }
+  .footer-logo__hiden {
+    opacity: 1;
+  }
+  .footer-logo__wrapper img {
+    display: none;
+  }
 }
 @media screen and (max-width: 380px) {
+  .title {
+    font-size: 4rem;
+  }
+  .title__active {
+    transform: translateY(531%);
+  }
+  .advantage__active {
+    line-height: 1;
+    transform: translateY(138%);
+  }
+  .advantage__title {
+    font-size: 4rem;
+  }
+  .contacts-contain {
+    margin-top: 0;
+  }
   .footer {
-    margin-top: 75%;
+    margin-top: 68%;
   }
 }
 @media screen and (max-width: 360px) {
+  .advantage__title {
+    font-size: 3.8rem;
+  }
   .contacts__button {
     font-size: 2.4rem;
   }

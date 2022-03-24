@@ -319,6 +319,13 @@ a {
         &__sber {
             width: 30%;
         }
+        &__glo{
+            width: 10%;
+        }
+        &__lukoil{
+            width: 17%;
+
+        }
     }
 
     &__wrapper {
@@ -358,6 +365,7 @@ a {
         }
     }
 }
+
 
 .contacts {
     position: relative;
@@ -775,12 +783,19 @@ a {
 
     .title {
         line-height: 1;
-
+        font-size: 4.7rem;
+        &__wrapper{
+            width: 100vw;
+        }
         &__active {
             // display: none;
-            left: 33vw;
+            // right: 0;
             opacity: 1;
-            transform: translateY(532%);
+            top: 0;
+            left: auto;
+            right: 6vw;
+            // transform: translateY(532%);
+            transform: translateY(583%);
         }
 
         &__hide {
@@ -805,10 +820,10 @@ a {
         &:after {
             content: '';
             position: absolute;
-            bottom: -15vh;
+            bottom: -18.5rem;
             width: 100vw;
             background: @yellow-color;
-            height: 8vh;
+            height: 12rem;
             left: 0;
         }
     }
@@ -844,6 +859,9 @@ a {
     }
 
     .advantage {
+        &__title{
+            font-size: 4.3rem;
+        }
         &-cards {
             padding-left: 0;
             flex-direction: column;
@@ -914,6 +932,11 @@ a {
                     width: 70%;
                 }
             }
+            &__glo{
+                & img {
+                    width: 50%;
+                }
+            }
 
         }
         &__footer{
@@ -926,16 +949,26 @@ a {
     .advantage {
         &__active {
             display: block;
-            line-height: 1;
+            line-height: 1.1;
+            // transform: translateY(132%);
+            transform: translateY(132%);
+            right: -11.2rem;
             // right: 0.5px;
             // transform: translateX(100%);
             // top: 2.5px;
         }
-
+        &__wrapper{
+            width: auto;
+        }
         &__footer {
             padding-bottom: 49px;
             margin-top: 39px;
             padding-left: 3vw;
+            font-size: 4.3rem;
+            &:after{
+                height: 5rem;
+                bottom: 1rem;
+            }
         }
     }
 
@@ -944,7 +977,8 @@ a {
         // overflow-x: hidden;
         &-video {
             width: 160vw;
-
+            height: auto;
+            overflow-y: hidden;
             &__wrapper {
                 overflow-x: hidden;
             }
@@ -952,7 +986,7 @@ a {
 
         &__video {
             width: 100%;
-            transform: translateX(-19vw);
+            transform: translateX(-27vw);
         }
 
         &-contain {
@@ -961,6 +995,7 @@ a {
             align-items: flex-start;
             height: auto;
             justify-content: flex-start;
+            margin-top: 4vh;
         }
 
         &__wrapper {
@@ -1037,16 +1072,52 @@ a {
             margin-right: 8%;
 
         }
+        &-logo{
+            &__hiden{
+                opacity: 1;
+            }
+            &__wrapper{
+                & img{
+                    display: none;
+                }
+            }
+        }
     }
 }
 
 @media screen and (max-width: 380px) {
+    .title{
+        font-size: 4rem;
+        &__active{
+            transform: translateY(531%);
+        }
+    }
+    .advantage{
+        &__active{
+            line-height: 1;
+            transform: translateY(138%);
+        }
+        &__title{
+            font-size: 4rem;
+        }
+    }
+    .contacts{
+        &-contain{
+            margin-top: 0;
+        }
+    }
+    
     .footer {
-        margin-top: 75%;
+        margin-top: 68%;
     }
 }
 
 @media screen and (max-width: 360px) {
+    .advantage{
+        &__title{
+            font-size: 3.8rem;
+        }
+    }
     .contacts__button {
         font-size: 2.4rem;
     }

@@ -6,19 +6,21 @@ if (screenWidth <= 420) {
     animateTitleMobileOnMain()
     animateMobileAdvantage()
     animateCardMobile()
+    animateYesMobile()
+    animateCardsMobile()
 }
 
-if (screenWidth > 420) {
+if (screenWidth > 421) {
     animateTitleOnMainPage()
     animateAdvantage()
     animateCardOnHover()
+    animateYes()
 }
 
 onHoverLogo()
 activeMobileMenu()
 hoverIconFooter()
 flowingScrollMenu()
-animateYes()
 
 function onHoverLogo () {
     let logoContainer = document.querySelector('.menu__logo')
@@ -103,12 +105,20 @@ $("#mobile-menu").on("click","a", function (event) {
     $('.menu-mobile__card_hide').removeClass('menu-mobile__card')
     $('#mobile-menu a').removeClass('menu-mobile__item_active')
     $(this).addClass('menu-mobile__item_active')
-    $('.menu-mobile__logo > img').prop('src', `${url}/img/main/logo-mobile.png`)
+    $('.menu-mobile__logo > img').prop('src', `${url}/img/main/logo-mobile.svg`)
     $('.menu-mobile__logo > img').css({'height':'47px'})
     document.body.style.overflow = ""
 });
 
 $("#footer-logo").on("click","a", function (event) {
+    event.preventDefault();
+    var id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
+    $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
+});
+
+$(".footer-logo__hiden").on("click","a", function (event) {
     event.preventDefault();
     var id  = $(this).attr('href'),
     top = $(id).offset().top;
@@ -183,6 +193,7 @@ function animateCardMobile () {
         scrollTrigger: {
             trigger: '.cards',
             start: 'top top',
+            // markers: true
             
         }
     });
@@ -300,6 +311,19 @@ function animateYes () {
     init.to('.advantage__active', {yPercent: -150, duration: 1})
 }
 
+function animateYesMobile () {
+    const init = gsap.timeline({
+        scrollTrigger: {
+            trigger: '.advantage-logo_mobile',
+            start: 'top 5%', // start scrollStart (относительно окна)
+            end: '90% 60%', // 70% относительно trigger, 50% - относительно окна
+            scrub: true,
+            // markers: true
+        }
+    });
+    init.to('.advantage__active', {yPercent: -138, duration: 1})
+}
+
 function animateTitleMobileOnMain () {
     
     const mainTitle = document.querySelector('.main-title')
@@ -330,3 +354,18 @@ function animateTitleMobileOnMain () {
     init2.to('#title-active', {yPercent: -132, duration: 1})
 }
 
+function animateCardsMobile () {
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
+
+    const cards = document.querySelectorAll('.card')
+
+        window.addEventListener('scroll', function() {
+            cards.forEach( el => {
+                
+                if (el.getBoundingClientRect().top <= screenHeight/5) {
+                    el.children[0].setAttribute('src', `${url}/img/projects/${el.children[0].alt}.gif`)
+            } 
+        })
+    })
+}
