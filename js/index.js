@@ -472,12 +472,15 @@ function gerCards() {
     const btn = document.querySelector('.cards-button')
     const spinner = document.querySelector('.cards-preloader')
     const btnWrapper = document.querySelector('.cards-button__wrapper')
+    
+    let pathName = location.pathname === '/index.html' ? '' : location.pathname
+    let url = location.origin + pathName
 
     btn.addEventListener('click', async function () {
         this.setAttribute('disabled', true)
         spinner.style.display = 'block'
         try {
-            let response = await fetch('/test-card.html')
+            let response = await fetch(`${url}/test-card.html`)
             let finalRes = await response.text()
             setTimeout(async () => {
                 btnWrapper.insertAdjacentHTML('beforebegin', finalRes);
