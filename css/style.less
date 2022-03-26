@@ -75,6 +75,9 @@ a {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: fixed;
+        width: 75vw;
+        z-index: 2;
     }
 
     &__item {
@@ -87,6 +90,9 @@ a {
         color: @yellow-color;
 
         &:hover {
+            color: #FFFFFF;
+        }
+        &_active{
             color: #FFFFFF;
         }
     }
@@ -153,7 +159,9 @@ a {
     }
 }
 
-.projects {}
+.projects {
+    padding-bottom: 10vh;
+}
 
 .video {
     width: 100%;
@@ -187,7 +195,22 @@ a {
     justify-content: space-between;
     flex-wrap: wrap;
     padding-top: 14vw;
-
+    &-preloader{
+        display: none;
+        width: 4%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        
+    }
+    &-button{
+        &__wrapper{
+            position: relative;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
 
 .card {
@@ -203,13 +226,25 @@ a {
         line-height: 1.5;
         position: relative;
 
-        &_ozon,
-        &_sber,
-        &_shell,
-        &_gaz,
-        &_domovenok,
-        &_pravmir {
+        // &_ozon,
+        // &_sber,
+        // &_shell,
+        // &_gaz,
+        // &_domovenok,
+        // &_pravmir {
 
+        //     display: none;
+        //     position: absolute;
+        //     background-color: black;
+        //     color: @yellow-color;
+        //     bottom: -1px;
+        //     width: 100%;
+        //     height: 112%;
+        //     padding-top: 1%;
+        //     animation: animate_on_hover .5s ease;
+
+        // }
+        &_hover{
             display: none;
             position: absolute;
             background-color: black;
@@ -219,7 +254,6 @@ a {
             height: 112%;
             padding-top: 1%;
             animation: animate_on_hover .5s ease;
-
         }
 
     }
@@ -300,7 +334,7 @@ a {
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        margin-top: 111px;
+        padding-top: 111px;
 
         &_mobile {
             display: none;

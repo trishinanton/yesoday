@@ -58,6 +58,9 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 75vw;
+  z-index: 2;
 }
 .menu__item {
   font-family: 'Nekst';
@@ -69,6 +72,9 @@ a:hover {
   color: #F8C800;
 }
 .menu__item:hover {
+  color: #FFFFFF;
+}
+.menu__item_active {
   color: #FFFFFF;
 }
 .menu-mobile {
@@ -117,6 +123,9 @@ a:hover {
   bottom: 0;
   z-index: -1;
 }
+.projects {
+  padding-bottom: 10vh;
+}
 .video {
   width: 100%;
   position: relative;
@@ -142,6 +151,19 @@ a:hover {
   flex-wrap: wrap;
   padding-top: 14vw;
 }
+.cards-preloader {
+  display: none;
+  width: 4%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.cards-button__wrapper {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
 .card {
   width: 24.5vw;
   margin-bottom: 8vh;
@@ -154,12 +176,7 @@ a:hover {
   line-height: 1.5;
   position: relative;
 }
-.card__title_ozon,
-.card__title_sber,
-.card__title_shell,
-.card__title_gaz,
-.card__title_domovenok,
-.card__title_pravmir {
+.card__title_hover {
   display: none;
   position: absolute;
   background-color: black;
@@ -232,7 +249,7 @@ a:hover {
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin-top: 111px;
+  padding-top: 111px;
 }
 .advantage-logo_mobile {
   display: none;

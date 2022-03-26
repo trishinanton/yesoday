@@ -1,0 +1,89 @@
+.main-project {
+  background-color: #F8C800;
+}
+.main-project__wrapper {
+  padding: 11vh 0 36vh 0;
+}
+.main-project__head {
+  display: flex;
+  justify-content: space-between;
+}
+.main-project__title {
+  font-size: 1.5rem;
+  line-height: 1.05;
+}
+.main-project__subtitle {
+  font-family: 'Nekst';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.main-project__description {
+  font-family: 'Nekst';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.main-project__video {
+  width: 100%;
+  padding-top: 11vh;
+}
+.main-project__media {
+  width: 100%;
+}
+.members {
+  display: flex;
+  font-family: 'Nekst';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.2;
+  justify-content: space-between;
+}
+.members__column {
+  display: flex;
+  flex-direction: column;
+}
+.member {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3.5vh;
+}
+.backstage {
+  padding-top: 11vh;
+}
+.backstage__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.backstage__title {
+  width: 30%;
+}
+.backstage__name {
+  font-size: 1.5;
+  line-height: 1.05;
+}
+.backstage__video {
+  width: 60%;
+}
+.backstage__media {
+  width: 100%;
+}
+.backstage__slides {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4vh;
+  width: 100%;
+}
+.backstage__slides img {
+  width: 17%;
+}
+@media screen and (max-width: 420px) {
+  .main-project__head {
+    flex-direction: column;
+    width: 100%;
+  }
+}

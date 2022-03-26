@@ -21,44 +21,45 @@ onHoverLogo()
 activeMobileMenu()
 hoverIconFooter()
 flowingScrollMenu()
+gerCards()
 
-function onHoverLogo () {
+function onHoverLogo() {
     let logoContainer = document.querySelector('.menu__logo')
     let pathName = location.pathname === '/index.html' ? '' : location.pathname
     let url = location.origin + pathName
 
 
-    logoContainer.addEventListener('mouseover', function() {
-        this.children[0].setAttribute('src', `${url}/img/main/logo-active.svg`); 
+    logoContainer.addEventListener('mouseover', function () {
+        this.children[0].setAttribute('src', `${url}/img/main/logo-active.svg`);
         this.children[0].style.height = '61px'
         this.classList.add('menu__logo_active')
         console.log(location);
     })
 
-    logoContainer.addEventListener('mouseout', function() {
+    logoContainer.addEventListener('mouseout', function () {
         this.children[0].setAttribute('src', `${url}/img/main/logo.svg`);
         this.classList.remove('menu__logo_active');
         this.children[0].style.height = ''
     })
 }
 
-function activeMobileMenu () {
+function activeMobileMenu() {
     let pathName = location.pathname === '/index.html' ? '' : location.pathname
     let url = location.origin + pathName
 
     let logo = document.querySelector('.menu-mobile__logo')
     let menu = document.querySelector('.menu-mobile__card_hide')
 
-    logo.addEventListener('click', function() {
+    logo.addEventListener('click', function () {
         menu.classList.add('menu-mobile__card')
-        
+
         this.children[0].setAttribute('src', `${url}/img/main/logo-active.svg`)
         this.children[0].style.height = '30px'
         document.body.style.overflow = "hidden"
 
         let close = document.querySelector('.menu-mobile__close')
-        if(close) {
-            close.addEventListener('click', function() {
+        if (close) {
+            close.addEventListener('click', function () {
                 menu.classList.remove('menu-mobile__card')
                 logo.children[0].setAttribute('src', `${url}/img/main/logo-mobile.svg`)
                 logo.children[0].style.height = '47px'
@@ -68,76 +69,126 @@ function activeMobileMenu () {
     })
 }
 
-function hoverIconFooter () {
+function hoverIconFooter() {
     let logo = document.querySelectorAll('.footer__row img')
 
     let pathName = location.pathname === '/index.html' ? '' : location.pathname
     let url = location.origin + pathName
-    
+
     logo.forEach(el => {
-        el.addEventListener('mouseover', function() {
+        el.addEventListener('mouseover', function () {
             el.setAttribute('src', `${url}/img/footer/${el.alt}-hover.svg`)
         })
 
-        el.addEventListener('mouseout', function() {
+        el.addEventListener('mouseout', function () {
             el.setAttribute('src', `${url}/img/footer/${el.alt}.svg`)
         })
     })
 }
 
-function flowingScrollMenu () {
-    $("#menu").on("click","a", function (event) {
-    event.preventDefault();
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top;
-    $('body,html').animate({scrollTop: top}, 1500);
-});
+function flowingScrollMenu() {
+    //     $("#menu").on("click","a", function (event) {
+    //     event.preventDefault();
+    //     var id  = $(this).attr('href'),
+    //     top = $(id).offset().top;
+    //     $('body,html').animate({scrollTop: top}, 1500);
+    //     $('.menu__row a').removeClass('menu__item_active')
+    //     $(this).addClass('menu__item_active')
+    // });
 
-$("#mobile-menu").on("click","a", function (event) {
-    event.preventDefault();
+    let section = $('section'),
+        nav = $('.menu'),
+        navHeight = nav.outerHeight(); // получаем высоту навигации 
 
-    let pathName = location.pathname === '/index.html' ? '' : location.pathname
-    let url = location.origin + pathName
+    // поворот экрана 
+    window.addEventListener('orientationchange', function () {
+        navHeight = nav.outerHeight();
+    }, false);
 
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top;
-    $('body,html').animate({scrollTop: top}, 1500);
-    $('.menu-mobile__card_hide').removeClass('menu-mobile__card')
-    $('#mobile-menu a').removeClass('menu-mobile__item_active')
-    $(this).addClass('menu-mobile__item_active')
-    $('.menu-mobile__logo > img').prop('src', `${url}/img/main/logo-mobile.svg`)
-    $('.menu-mobile__logo > img').css({'height':'47px'})
-    document.body.style.overflow = ""
-});
+    $(window).on('scroll', function () {
+        const position = $(this).scrollTop();
 
-$("#footer-logo").on("click","a", function (event) {
-    event.preventDefault();
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top;
-    $('body,html').animate({scrollTop: top}, 1500);
-    $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
-});
+        section.each(function () {
+            const top = $(this).offset().top - navHeight - 250,
+                bottom = top + $(this).outerHeight() + 200;
 
-$(".footer-logo__hiden").on("click","a", function (event) {
-    event.preventDefault();
-    var id  = $(this).attr('href'),
-    top = $(id).offset().top;
-    $('body,html').animate({scrollTop: top}, 1500);
-    $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
-});
+            if (position >= top && position <= bottom) {
+                nav.find('a').removeClass('menu__item_active');
+                // section.removeClass('active');
+
+                // $(this).addClass('menu__item_active');
+                nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('menu__item_active');
+            }
+        });
+    });
+
+    nav.find('a').on('click', function () {
+        const id = $(this).attr('href');
+
+        $('html, body').animate({
+            scrollTop: $(id).offset().top - navHeight
+        }, 487);
+
+        return false;
+    });
+
+
+
+
+
+    $("#mobile-menu").on("click", "a", function (event) {
+        event.preventDefault();
+
+        let pathName = location.pathname === '/index.html' ? '' : location.pathname
+        let url = location.origin + pathName
+
+        var id = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1500);
+        $('.menu-mobile__card_hide').removeClass('menu-mobile__card')
+        $('#mobile-menu a').removeClass('menu-mobile__item_active')
+        $(this).addClass('menu-mobile__item_active')
+        $('.menu-mobile__logo > img').prop('src', `${url}/img/main/logo-mobile.svg`)
+        $('.menu-mobile__logo > img').css({
+            'height': '47px'
+        })
+        document.body.style.overflow = ""
+    });
+
+    $("#footer-logo").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1500);
+        $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
+    });
+
+    $(".footer-logo__hiden").on("click", "a", function (event) {
+        event.preventDefault();
+        var id = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({
+            scrollTop: top
+        }, 1500);
+        $('.menu-mobile__row .menu-mobile__item_active').removeClass('menu-mobile__item_active')
+    });
 }
 
-function animateTitleOnMainPage () {
+function animateTitleOnMainPage() {
     const titleYestoday = document.getElementById('title-active')
-    titleYestoday.style.opacity='1'
+    titleYestoday.style.opacity = '1'
     const coordsTitleYestoday = titleYestoday.getBoundingClientRect()
     const heightTitleYestoday = titleYestoday.offsetHeight
     const topCoordsWindowTitleYestoday = coordsTitleYestoday.top
-    const bottomCoordsDocumentTitleYestoday = coordsTitleYestoday.bottom + window.pageYOffset + heightTitleYestoday/2
-    
+    const bottomCoordsDocumentTitleYestoday = coordsTitleYestoday.bottom + window.pageYOffset + heightTitleYestoday / 2
+
     const scrollerEndTitleYes = topCoordsWindowTitleYestoday + heightTitleYestoday
     const endTitleYes = bottomCoordsDocumentTitleYestoday + heightTitleYestoday
-    const startTitleYes = heightTitleYestoday 
+    const startTitleYes = heightTitleYestoday
 
     console.log(heightTitleYestoday);
     console.log(startTitleYes);
@@ -150,7 +201,10 @@ function animateTitleOnMainPage () {
             // markers: true
         }
     });
-    initTitleYestoday.from("#title-active", {yPercent: 130, duration: 1})
+    initTitleYestoday.from("#title-active", {
+        yPercent: 130,
+        duration: 1
+    })
 
     const initTitleYes = gsap.timeline({
         scrollTrigger: {
@@ -160,92 +214,109 @@ function animateTitleOnMainPage () {
             // markers: true
         }
     });
-    initTitleYes.from("#title-hide", {yPercent: 110, duration: 1})
+    initTitleYes.from("#title-hide", {
+        yPercent: 110,
+        duration: 1
+    })
 }
 
-function animateCardOnHover () {
+function animateCardOnHover() {
     const cards = document.querySelector('.cards')
 
     let pathName = location.pathname === '/index.html' ? '' : location.pathname
     let url = location.origin + pathName
 
-    cards.addEventListener('mouseover', function(e) {
+    cards.addEventListener('mouseover', function (e) {
         let target = e.target
-        
-        if(target.className !== 'card__image') return
+
+        if (target.className !== 'card__image') return
 
         target.setAttribute('src', `${url}/img/projects/${target.alt}.gif`)
-        document.querySelector(`.card__title_${target.alt}`).style.display = 'block'
+        target.nextElementSibling.querySelector('.card__title_hover').style.display = 'block'
+        // document.querySelector(`.card__title_${target.alt}`).style.display = 'block'
     });
 
-    cards.addEventListener('mouseout', function(e) {
+    cards.addEventListener('mouseout', function (e) {
         let target = e.target
-        
-        if(target.className !== 'card__image') return
+
+        if (target.className !== 'card__image') return
 
         target.setAttribute('src', `${url}/img/projects/${target.alt}.svg`)
-        document.querySelector(`.card__title_${target.alt}`).style.display = 'none'
+        target.nextElementSibling.querySelector('.card__title_hover').style.display = 'none'
+        // document.querySelector(`.card__title_${target.alt}`).style.display = 'none'
     })
 }
 
-function animateCardMobile () {
+function animateCardMobile() {
     const init1 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: 'top top',
             // markers: true
-            
+
         }
     });
-    init1.from("#card-anime0", {width:"0px"})
+    init1.from("#card-anime0", {
+        width: "0px"
+    })
 
     const init2 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: '10% top',
-        
+
         }
     });
-    init2.from("#card-anime1", {width:"0px"})
+    init2.from("#card-anime1", {
+        width: "0px"
+    })
 
     const init3 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: '30% top',
-            
+
         }
     });
-    init3.from("#card-anime2", {width:"0px"})
+    init3.from("#card-anime2", {
+        width: "0px"
+    })
 
     const init4 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: '40% top',
-            
+
         }
     });
-    init4.from("#card-anime3", {width:"0px"})
+    init4.from("#card-anime3", {
+        width: "0px"
+    })
 
     const init5 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: '60% top',
-            
+
         }
     });
-    init5.from("#card-anime4", {width:"0px"})
+    init5.from("#card-anime4", {
+        width: "0px"
+    })
 
     const init6 = gsap.timeline({
         scrollTrigger: {
             trigger: '.cards',
             start: '80% top',
-         
+
         }
     });
-    init6.from("#card-anime5", {width:"0px"})
+    init6.from("#card-anime5", {
+        width: "0px"
+    })
 }
-  
-function animateAdvantage () {
+
+function animateAdvantage() {
     const initAnim = gsap.timeline({
         scrollTrigger: {
             trigger: '.advantage__title',
@@ -253,14 +324,22 @@ function animateAdvantage () {
             // markers: true
         }
     });
- 
-    initAnim.add( gsap.from("#advantage-anime0", {width:"0px"}) );
-    initAnim.add( gsap.from("#advantage-anime1", {width:"0px"}) );
-    initAnim.add( gsap.from("#advantage-anime2", {width:"0px"}) );
-    initAnim.add( gsap.from("#advantage-anime3", {width:"0px"}) );
+
+    initAnim.add(gsap.from("#advantage-anime0", {
+        width: "0px"
+    }));
+    initAnim.add(gsap.from("#advantage-anime1", {
+        width: "0px"
+    }));
+    initAnim.add(gsap.from("#advantage-anime2", {
+        width: "0px"
+    }));
+    initAnim.add(gsap.from("#advantage-anime3", {
+        width: "0px"
+    }));
 }
 
-function animateMobileAdvantage () {
+function animateMobileAdvantage() {
     const init1 = gsap.timeline({
         scrollTrigger: {
             trigger: '.advantage__title',
@@ -268,7 +347,9 @@ function animateMobileAdvantage () {
             // markers: true
         }
     });
-    init1.from("#advantage-anime0", {width:"0px"})
+    init1.from("#advantage-anime0", {
+        width: "0px"
+    })
 
     const init2 = gsap.timeline({
         scrollTrigger: {
@@ -277,7 +358,9 @@ function animateMobileAdvantage () {
             // markers: true
         }
     });
-    init2.from("#advantage-anime1", {width:"0px"})
+    init2.from("#advantage-anime1", {
+        width: "0px"
+    })
 
     const init3 = gsap.timeline({
         scrollTrigger: {
@@ -286,7 +369,9 @@ function animateMobileAdvantage () {
             // markers: true
         }
     });
-    init3.from("#advantage-anime2", {width:"0px"})
+    init3.from("#advantage-anime2", {
+        width: "0px"
+    })
 
     const init4 = gsap.timeline({
         scrollTrigger: {
@@ -295,10 +380,12 @@ function animateMobileAdvantage () {
             // markers: true
         }
     });
-    init4.from("#advantage-anime3", {width:"0px"})
+    init4.from("#advantage-anime3", {
+        width: "0px"
+    })
 }
 
-function animateYes () {
+function animateYes() {
     const init = gsap.timeline({
         scrollTrigger: {
             trigger: '.advantage-logo',
@@ -308,10 +395,13 @@ function animateYes () {
             // markers: true
         }
     });
-    init.to('.advantage__active', {yPercent: -150, duration: 1})
+    init.to('.advantage__active', {
+        yPercent: -150,
+        duration: 1
+    })
 }
 
-function animateYesMobile () {
+function animateYesMobile() {
     const init = gsap.timeline({
         scrollTrigger: {
             trigger: '.advantage-logo_mobile',
@@ -321,17 +411,20 @@ function animateYesMobile () {
             // markers: true
         }
     });
-    init.to('.advantage__active', {yPercent: -138, duration: 1})
+    init.to('.advantage__active', {
+        yPercent: -138,
+        duration: 1
+    })
 }
 
-function animateTitleMobileOnMain () {
-    
+function animateTitleMobileOnMain() {
+
     const mainTitle = document.querySelector('.main-title')
     const coordsMainTitle = mainTitle.getBoundingClientRect()
     const bottomTitle = coordsMainTitle.bottom
     const endAnim = bottomTitle
-    const scrollerEndTitle = bottomTitle - screenHeight/10
-    const startAnim = screenHeight/20
+    const scrollerEndTitle = bottomTitle - screenHeight / 10
+    const startAnim = screenHeight / 20
 
     const init = gsap.timeline({
         scrollTrigger: {
@@ -341,8 +434,11 @@ function animateTitleMobileOnMain () {
             // markers: true
         }
     });
-    init.to('#title-hide', {yPercent: -130, duration: 1})
-    
+    init.to('#title-hide', {
+        yPercent: -130,
+        duration: 1
+    })
+
     const init2 = gsap.timeline({
         scrollTrigger: {
             start: `${startAnim}`,
@@ -351,21 +447,49 @@ function animateTitleMobileOnMain () {
             // markers: true
         }
     });
-    init2.to('#title-active', {yPercent: -132, duration: 1})
+    init2.to('#title-active', {
+        yPercent: -132,
+        duration: 1
+    })
 }
 
-function animateCardsMobile () {
+function animateCardsMobile() {
     let pathName = location.pathname === '/index.html' ? '' : location.pathname
     let url = location.origin + pathName
 
-    const cards = document.querySelectorAll('.card')
+    let cards = document.getElementsByClassName('card')
 
-        window.addEventListener('scroll', function() {
-            cards.forEach( el => {
-                
-                if (el.getBoundingClientRect().top <= screenHeight/5) {
-                    el.children[0].setAttribute('src', `${url}/img/projects/${el.children[0].alt}.gif`)
-            } 
-        })
+    window.addEventListener('scroll', function () {
+        for (let el of cards) {
+            if (el.getBoundingClientRect().top <= screenHeight / 5) {
+                el.children[0].setAttribute('src', `${url}/img/projects/${el.children[0].alt}.gif`)
+            }
+        }
+    })
+}
+
+function gerCards() {
+    const btn = document.querySelector('.cards-button')
+    const spinner = document.querySelector('.cards-preloader')
+    const btnWrapper = document.querySelector('.cards-button__wrapper')
+
+    btn.addEventListener('click', async function () {
+        this.setAttribute('disabled', true)
+        spinner.style.display = 'block'
+        try {
+            let response = await fetch('/test-card.html')
+            let finalRes = await response.text()
+            setTimeout(async () => {
+                btnWrapper.insertAdjacentHTML('beforebegin', finalRes);
+                this.setAttribute('disabled', false)
+                spinner.style.display = 'none'
+            }, 500)
+        } catch (e) {
+            console.log(e);
+            this.setAttribute('disabled', false)
+            spinner.style.display = 'none'
+        }
+
+
     })
 }
